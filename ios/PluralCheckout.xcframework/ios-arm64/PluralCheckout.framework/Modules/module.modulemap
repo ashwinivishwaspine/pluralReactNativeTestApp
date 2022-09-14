@@ -1,0 +1,11 @@
+framework module PluralCheckout {
+  umbrella header "PluralCheckout.h"
+
+  export *
+  module * { export * }
+}
+
+module PluralCheckout.Swift {
+    header "PluralCheckout-Swift.h"
+    requires objc
+}

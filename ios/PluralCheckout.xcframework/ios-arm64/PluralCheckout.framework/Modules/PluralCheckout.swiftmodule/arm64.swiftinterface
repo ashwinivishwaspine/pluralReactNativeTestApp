@@ -1,0 +1,88 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PluralCheckout
+import CommonCrypto
+import Foundation
+import Network
+@_exported import PluralCheckout
+import Swift
+import SystemConfiguration
+import UIKit
+import WebKit
+import _Concurrency
+@_hasMissingDesignatedInitializers final public class Toas {
+  final public var backgroundColor: UIKit.UIColor
+  final public var font: UIKit.UIFont
+  final public var textColor: UIKit.UIColor
+  final public var textInsets: UIKit.UIEdgeInsets
+  final public var cornerRadius: CoreGraphics.CGFloat
+  final public var bottomPadding: CoreGraphics.CGFloat
+  final public var minimumHorizontalPadding: CoreGraphics.CGFloat
+  final public var duration: CoreGraphics.CGFloat
+  public static let `default`: PluralCheckout.Toas
+  final public func show(text: Swift.String, duration: Swift.Double)
+  final public func dismiss(animated: Swift.Bool, completion: (() -> Swift.Void)? = nil)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Hashing_Algorithm {
+  public static func GenerateHash(base64string: Swift.String, strSecretKey: Swift.String, strHashType: Swift.String) -> Swift.String
+  @objc deinit
+}
+public class PluralPGPaymentManager {
+  public init()
+  public static func open(options: PluralCheckout.Plural, environment: PluralCheckout.PluralEnvironment, context ctx: UIKit.UIViewController, pluralPGResponseCallback: PluralCheckout.IPluralPGResponseCallback)
+  @objc deinit
+}
+public class Internet {
+  public init()
+  public func isInternetAvailable() -> Swift.Bool
+  @objc deinit
+}
+public protocol IPluralPGResponseCallback {
+  func onErrorOccured(code: Swift.Int, message: Swift.String)
+  func onTransactionResponse(paymentId: Swift.String, pluralOrderId: Swift.String)
+  func onCancelTxn()
+}
+@_hasMissingDesignatedInitializers public class PluralPGConstant {
+  public static let RM_INTERNET_NOT_CONNECTED: Swift.String
+  public static let Timeout: Swift.String
+  public static let SERVER_NOT_FOUND: Swift.String
+  public static let URL_NOT_FOUND: Swift.String
+  public static let CANCEL_TRANSACATION_MSG: Swift.String
+  public static let BANK_HEADER_INTIAL_TITLE: Swift.String
+  public static let ZOOM_IN_DISABLE: Swift.String
+  @objc deinit
+}
+public enum PluralEnvironment {
+  case isProd
+  case isDev
+  case isQA
+  case isUAT
+  public static func == (a: PluralCheckout.PluralEnvironment, b: PluralCheckout.PluralEnvironment) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public class Plural {
+  public init()
+  public func setTheme(theme: Swift.String) -> PluralCheckout.Plural
+  public func setOrderToken(orderToken: Swift.String) -> PluralCheckout.Plural
+  public func setChannelId(channelId: Swift.String) -> PluralCheckout.Plural
+  public func setPaymentMode(paymentMode: Swift.String) -> PluralCheckout.Plural
+  public func setCountryCode(countryCode: Swift.String) -> PluralCheckout.Plural
+  public func setMobileNum(mobileNumber: Swift.String) -> PluralCheckout.Plural
+  public func setEmailId(emailId: Swift.String) -> PluralCheckout.Plural
+  public func setshowSavedCardsFeature(showSavedCardsFeature: Swift.Bool) -> PluralCheckout.Plural
+  public func getTheme() -> Swift.String
+  public func getOrderToken() -> Swift.String
+  public func getChannelId() -> Swift.String
+  public func getPaymentMode() -> Swift.String
+  public func getCountryCode() -> Swift.String
+  public func getMobileNum() -> Swift.String
+  public func getEmailId() -> Swift.String
+  public func getshowSavedCardsFeature() -> Swift.Bool
+  @objc deinit
+}
+extension PluralCheckout.PluralEnvironment : Swift.Equatable {}
+extension PluralCheckout.PluralEnvironment : Swift.Hashable {}
