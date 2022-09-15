@@ -6,23 +6,29 @@
  * @flow strict-local
  */
  import React from 'react';
- import {Alert, Text, View , Button,StyleSheet} from 'react-native';
+ import { Buffer } from "buffer";
+
+ import {Alert , View , Button,StyleSheet} from 'react-native';
  import { NativeModules } from 'react-native';
+ import {generateCreateOrder} from './data1'
   const { PluralCheckoutSDK } = NativeModules;
   const environment = {
     QA: "QA",
     UAT: "UAT",
     PROD: "PROD",
   }
+ 
  const App = () => {
-   const onPress = () => {
+   const onPress =  async() => {
+    let tokenData = await generateCreateOrder()
+    console.log(tokenData.token)
 
     const options = {
         "channelId" : "APP",
         "countryCode" : "91",
         "emailId" : "ashwini.vishwas@pinelabs.com",
         "theme" : "Dark",
-        "orderToken" : "YIi3Gvxow38jkUS5zht6iOg18fdl7sjsWAb%2F9fSW6v4%3D",
+        "orderToken" : tokenData.token,
         "paymentMode" : "ALL",
         "showSavedCardsFeature" : false,
         "mobileNumber" : "9359612449"
@@ -32,7 +38,7 @@
         Alert.alert(arg,  
         "status code" +" "+ arg.statusCode,  
         [    
-            {text: 'OK', onPress: () => console.log( "my arg is " + arg ) } 
+            {text: 'OK', onPress: () => console.log( "my arg is " + arg.statusCode ) } 
         ]  
     );  
       };
