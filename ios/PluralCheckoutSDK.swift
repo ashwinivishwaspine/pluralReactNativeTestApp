@@ -62,7 +62,7 @@ public class MerchantCallbackResponse:UIViewController, IPluralPGResponseCallbac
   public func onErrorOccured(code: Int, message: String) {
     let resultsDict = [
      "statusCode" : 400,
-     "errorMessage": message
+     "message": message
     ] as [String : Any]
     
     PluralCheckoutSDK.onResponseCallback!([resultsDict])  }
@@ -73,7 +73,7 @@ public class MerchantCallbackResponse:UIViewController, IPluralPGResponseCallbac
     
     let resultsDict = [
      "statusCode" : 200,
-     "paymentDict": dict
+     "message": dict
     ] as [String : Any]
     
     PluralCheckoutSDK.onResponseCallback!([resultsDict])
@@ -84,7 +84,7 @@ public class MerchantCallbackResponse:UIViewController, IPluralPGResponseCallbac
    
     let resultsDict = [
      "statusCode" : 300,
-     "errorMessage": "transcation canncelled by user"
+     "message": "transcation cancelled by user"
     ] as [String : Any]
     PluralCheckoutSDK.onResponseCallback!([resultsDict])
   }

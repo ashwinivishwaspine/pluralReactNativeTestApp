@@ -35,18 +35,38 @@
       };
 
       const SDKCallback = async (arg) => {
-        Alert.alert(arg,  
-        "status code" +" "+ arg.statusCode,  
-        [    
-            {text: 'OK', onPress: () => console.log( "my arg is " + arg.statusCode ) } 
-        ]  
-    );  
+        if (arg.statusCode == 200){ // transcation successful
+          successShowAlert(arg.message);
+        }else if (arg.statusCode == 400){ // error occurs
+          showAlert(arg.message);
+        }else{ // 300 // trans cancelled 
+          showAlert(arg.message);
+        }
+ 
       };
       
       PluralCheckoutSDK.start(options,environment.UAT,SDKCallback);
     }
-      
-   
+
+    function successShowAlert(message){
+      let messageTemp = "Success Reponse: paymentId= " + message.paymentId + " pluralOrderId=" + message.pluralOrderId ;
+      Alert.alert("Alert",  
+      messageTemp,  
+      [    
+          {text: 'OK', onPress: () => console.log( messageTemp)} 
+      ]  
+  ); 
+    }
+
+   function showAlert(message){
+
+    Alert.alert("Alert",  
+      message,  
+      [    
+          {text: 'OK', onPress: () => console.log( "Callback Reponse: paymentId= " + message.paymentId + " " + "pluralOrderId=" + message.pluralOrderId) } 
+      ]  
+  ); 
+   }
 
    return (
      <View style={styles.container}>
@@ -61,9 +81,10 @@
  const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',
-    marginTop:300
-  }
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center'
+    }
 })
 
  export default App;
