@@ -5,6 +5,21 @@
 //  Created by Ashwini Vishwas on 02/08/22.
 //
 
+extension NSDictionary {
+  
+  var swiftDictionary: [String : Any] {
+    var swiftDictionary: [String : Any] = [:]
+    let keys = self.allKeys.flatMap { $0 as? String }
+    for key in keys {
+      let keyValue = self.value(forKey: key) as AnyObject
+      swiftDictionary[key] = keyValue
+    }
+    return swiftDictionary
+  }
+}
+
+
+
 import Foundation
 import UIKit
 
@@ -21,17 +36,9 @@ class PluralCheckoutSDK: NSObject {
     
     PluralCheckoutSDK.onResponseCallback = onReponse
     
-    let optionsData = Plural()
-    
-    optionsData.setTheme(theme: options["theme"] as? String ?? "default")
-      .setChannelId(channelId: options["channelId"] as? String ?? "APP")
-      .setPaymentMode(paymentMode: options["paymentMode"] as? String ?? "ALL")
-      .setCountryCode(countryCode: options["countryCode"] as? String ?? "91")
-      .setMobileNum(mobileNumber: options["mobileNumber"] as? String ?? "null")
-      .setEmailId(emailId: options["emailId"] as! String)
-      .setshowSavedCardsFeature(showSavedCardsFeature: (options["showSavedCardsFeature"]  as? Bool ?? true))
-      .setOrderToken(orderToken: options["orderToken"] as? String ?? "")
-    
+    //in code
+
+   let optionsData =  options.swiftDictionary
     var envTOPass: PluralEnvironment
     
     switch environment{

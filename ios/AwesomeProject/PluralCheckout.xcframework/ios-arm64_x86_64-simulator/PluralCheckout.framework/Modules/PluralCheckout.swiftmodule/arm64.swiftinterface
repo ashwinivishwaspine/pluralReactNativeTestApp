@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
-// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PluralCheckout
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PluralCheckout
 import CommonCrypto
 import Foundation
 import Network
@@ -30,7 +30,7 @@ import _Concurrency
 }
 public class PluralPGPaymentManager {
   public init()
-  public static func open(options: PluralCheckout.Plural, environment: PluralCheckout.PluralEnvironment, context ctx: UIKit.UIViewController, pluralPGResponseCallback: PluralCheckout.IPluralPGResponseCallback)
+  public static func open(options: [Swift.String : Any], environment: PluralCheckout.PluralEnvironment, context ctx: UIKit.UIViewController, pluralPGResponseCallback: PluralCheckout.IPluralPGResponseCallback)
   @objc deinit
 }
 public class Internet {

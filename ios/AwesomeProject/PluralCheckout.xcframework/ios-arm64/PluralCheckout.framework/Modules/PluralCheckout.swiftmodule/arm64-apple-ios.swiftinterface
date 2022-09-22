@@ -30,7 +30,7 @@ import _Concurrency
 }
 public class PluralPGPaymentManager {
   public init()
-  public static func open(options: PluralCheckout.Plural, environment: PluralCheckout.PluralEnvironment, context ctx: UIKit.UIViewController, pluralPGResponseCallback: PluralCheckout.IPluralPGResponseCallback)
+  public static func open(options: [Swift.String : Any], environment: PluralCheckout.PluralEnvironment, context ctx: UIKit.UIViewController, pluralPGResponseCallback: PluralCheckout.IPluralPGResponseCallback)
   @objc deinit
 }
 public class Internet {

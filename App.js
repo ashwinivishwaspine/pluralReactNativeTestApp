@@ -31,7 +31,8 @@
         "orderToken" : tokenData.token,
         "paymentMode" : "ALL",
         "showSavedCardsFeature" : false,
-        "mobileNumber" : "9359612449"
+        "mobileNumber" : "9359612449",
+        "cardCategoryType":"DC"
       };
 
       const SDKCallback = (arg) => {
