@@ -32,7 +32,7 @@
         "paymentMode" : "ALL",
         "showSavedCardsFeature" : false,
         "mobileNumber" : "9359612449",
-        "cardCategoryType":"DC"
+        "cardCategoryType":null  // CC or DC or CC_DC
       };
 
       const SDKCallback = (arg) => {
