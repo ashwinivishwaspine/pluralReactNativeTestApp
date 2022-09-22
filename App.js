@@ -34,38 +34,39 @@
         "mobileNumber" : "9359612449"
       };
 
-      const SDKCallback = async (arg) => {
+      const SDKCallback = (arg) => {
         if (arg.statusCode == 200){ // transcation successful
-          successShowAlert(arg.message);
+          setTimeout(function() {successShowAlert(arg.message)}, 100);
         }else if (arg.statusCode == 400){ // error occurs
-          showAlert(arg.message);
-        }else{ // 300 // trans cancelled 
-          showAlert(arg.message);
+          setTimeout(function() {showAlert(arg.message)}, 100);
+        }else{ // 300 // trans cancelled
+          setTimeout(function() {showAlert(arg.message)}, 100);
         }
- 
+
       };
       
       PluralCheckoutSDK.start(options,environment.UAT,SDKCallback);
     }
 
     function successShowAlert(message){
+      console.log('Success', message);
       let messageTemp = "Success Reponse: paymentId= " + message.paymentId + " pluralOrderId=" + message.pluralOrderId ;
-      Alert.alert("Alert",  
-      messageTemp,  
-      [    
-          {text: 'OK', onPress: () => console.log( messageTemp)} 
-      ]  
-  ); 
+      Alert.alert("Alert",
+      messageTemp,
+      [
+          {text: 'OK', onPress: () => console.log( messageTemp)}
+      ]
+  );
     }
 
    function showAlert(message){
-
-    Alert.alert("Alert",  
-      message,  
-      [    
-          {text: 'OK', onPress: () => console.log( "Callback Reponse: paymentId= " + message.paymentId + " " + "pluralOrderId=" + message.pluralOrderId) } 
-      ]  
-  ); 
+    console.log('Failure', message);
+    Alert.alert("Alert",
+      message,
+      [
+          {text: 'OK', onPress: () => console.log( "Callback Reponse: paymentId= " + message.paymentId + " " + "pluralOrderId=" + message.pluralOrderId) }
+      ]
+  );
    }
 
    return (
